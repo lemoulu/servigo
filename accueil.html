@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agapeo Distributions— Bientôt en ligne</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            padding: 40px;
+        }
+
+        .logo {
+            width: 260px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Compteur */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 35px 0;
+        }
+
+        .time-box {
+            background: #1e293b;
+            padding: 18px 22px;
+            border-radius: 14px;
+            min-width: 80px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        .time-box small {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        /* Email */
+        .contact {
+            margin-top: 30px;
+        }
+
+        .contact a {
+            background-color: #f97316;
+            color: white;
+            padding: 12px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .contact a:hover {
+            background-color: #ea580c;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Logo -->
+        <img src="logo.png" alt="Agapeo Logo" class="logo">
+
+        <h1>(Dernière modification) Agapeo Lancement le 24 Juillet 🚀</h1>
+
+        <p>
+            Nous nous transformons en devops<strong>Fintech</strong>,
+            <strong>Intelligence Artificielle</strong> et <strong>Transformation digitale</strong>.<br>
+            Notre plateforme sera disponible très prochainement.
+        </p>
+
+        <!-- Compteur -->
+        <div class="countdown">
+            <div class="time-box"><span id="days">00</span><small>Jours</small></div>
+            <div class="time-box"><span id="hours">00</span><small>Heures</small></div>
+            <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
+            <div class="time-box"><span id="seconds">00</span><small>Secondes</small></div>
+        </div>
+
+        <!-- Email contact -->
+        <div class="contact">
+            <a href="mailto:direction@agapeo.ca">Nous contacter</a>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Agapeo — agapeo.ca
+    </footer>
+
+
+    <!-- Script compteur -->
+    <script>
+        // ⚡ Modifie ici la date de lancement
+        const launchDate = new Date("2026-04-01T00:00:00").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((distance / (1000 * 60)) % 60);
+            const seconds = Math.floor((distance / 1000) % 60);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector(".countdown").innerHTML = "🚀 Nous sommes en ligne !";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
